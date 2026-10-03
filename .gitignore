@@ -13,4 +13,25 @@ htmlcov/
 
 *.db
 *.sqlite
+*$py.class
+__MACOSX/
+venv/
+env/
 
+# Generated data
+chroma_db/
+data/logs/
+data/eval/
+
+*$py.class
+__MACOSX/
+venv/
+env/
+
+# Generated data
+chroma_db/
+data/logs/
+data/eval/
+data/processed/
+
+!.env.example
