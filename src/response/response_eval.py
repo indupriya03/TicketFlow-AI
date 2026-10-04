@@ -34,7 +34,6 @@ Usage:
 import argparse
 from pathlib import Path
 import csv
-from dotenv import parser
 import nltk
 import pandas as pd
 from nltk.translate.bleu_score import SmoothingFunction, sentence_bleu

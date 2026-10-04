@@ -1,23 +1,21 @@
 """
-Phase 9 — Learning Agent (Logging, Phase 1)
+Phase 9 — Learning Agent (Logging + Feedback).
+
 Multi-Agent Customer Support Intelligence Platform
 
-NOT a learning loop yet — see Known limitations in SKILL.md. This is the
-logging half of the project spec's "Logging + Learning Agent" box: it
-persists every ticket's full trace to SQLite, the prerequisite storage
-layer for (a) a Streamlit Agent Logs panel, (b) any future feedback loop,
-and (c) resolution-time / automation-rate / escalation-rate metrics.
+Logs every ticket's full trace to SQLite on every exit path. Human decisions
+(approve / edit / reject, plus corrected category and priority) are saved
+afterwards with update_human_decision(). The offline scripts
+index_from_feedback.py and retrain_from_feedback.py then use that feedback
+to re-index the knowledge base and retrain the classifiers, with a metric
+gate that keeps or rolls back the new model. They run on demand, not on a
+schedule.
 
     START -> log -> END
 
 Table: tickets_log (created on first run if missing), at data/logs/tickets.db.
 Upserts by ticket_id, so re-running the same ticket_id (e.g. a demo re-run)
 overwrites rather than duplicates.
-
-human_action and final_sent_text start NULL — filled in later by a second
-call to update_human_decision() once a human (simulated in Streamlit for
-this project) approves or edits an escalated ticket's draft reply. See
-Phase 2, not yet built.
 """
 
 import json

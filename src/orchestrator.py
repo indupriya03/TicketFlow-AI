@@ -1,5 +1,6 @@
 """
-Orchestrator — chains the Intake and Triage graphs
+Orchestrator — chains all six agents (Intake, Triage, Retrieval, Response,
+Escalation, Learning)
 Multi-Agent Customer Support Intelligence Platform
 
 Intake and Triage are separate LangGraph graphs (see the design decision
@@ -23,9 +24,11 @@ Two responsibilities:
 
 Both return the same shape:
     {"status": "awaiting_customer", "thread_id": ..., "message": ..., "missing_fields": [...]}
-    or the merged Intake + Triage + Retrieval state (Triage and Retrieval only run when Intake
-    produced a valid intent), plus "triage_ran": bool and "retrieval_ran": bool.
-Adjust the import paths below to match where your files live.
+    or the merged pipeline state: Intake fields, plus Triage, Retrieval and Response
+    fields when those stages ran, and always escalation_decision,
+    escalation_reasons and jira_issue_key. Flags "triage_ran", "retrieval_ran" and
+    "response_ran" show which stages executed. Every exit path ends by logging the
+    ticket through the Learning agent.
 """
 
 from langgraph.types import Command
