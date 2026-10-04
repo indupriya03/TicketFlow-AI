@@ -1,0 +1,14 @@
+stages:
+  build_processed_data:
+    cmd: python src/preprocessing.py
+    deps:
+      - src/preprocessing.py
+      - data/raw/support_tickets_10k.csv
+      - data/raw/faq_knowledge_base_150.csv
+    outs:
+      - data/processed/support_tickets_clean.csv
+      - data/processed/support_tickets_train.csv
+      - data/processed/support_tickets_test.csv
+      - data/processed/faq_knowledge_base_clean.csv
+      - data/processed/cleaning_report.txt
+      

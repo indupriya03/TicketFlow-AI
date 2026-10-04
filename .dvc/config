@@ -1,6 +1,4 @@
 [core]
     remote = dagshub
-['remote "origin"']
-    url = https://dagshub.com/indupriya03/TicketFlow-AI.dvc
 ['remote "dagshub"']
     url = https://dagshub.com/indupriya03/TicketFlow-AI.dvc

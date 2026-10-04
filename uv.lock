@@ -5642,11 +5642,6 @@ dependencies = [
     { name = "xgboost" },
 ]
 
-[package.dev-dependencies]
-dev = [
-    { name = "pytest" },
-]
-
 [package.metadata]
 requires-dist = [
     { name = "agno", specifier = ">=3.0.11" },
@@ -5680,9 +5675,6 @@ requires-dist = [
     { name = "uvicorn", specifier = ">=0.54.0" },
     { name = "xgboost", specifier = ">=3.4.1" },
 ]
-
-[package.metadata.requires-dev]
-dev = [{ name = "pytest", specifier = ">=9.1.1" }]
 
 [[package]]
 name = "tinycss2"

@@ -1,0 +1,8 @@
+rag:
+  embedding_model: models/gemini-embedding-001
+  embedding_output_dim: 768
+  embedding_batch_size: 100
+  top_k: 5
+  confidence_thresholds:
+    faq: 0.33
+    resolution_template: 0.35
