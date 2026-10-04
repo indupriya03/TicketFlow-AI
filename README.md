@@ -43,6 +43,8 @@ The online serving path is:
    - human review updates the log and writes verified feedback
    - KB re-indexing and classifier retraining are **manual/offline scripts**, not automatic per-ticket actions
 
+   <details>
+   <summary>Detailed flowchart (all nodes)</summary>
 ```mermaid
 flowchart TD
     UI["Customer ticket<br/>Streamlit UI"] --> API["FastAPI backend / Orchestrator<br/>POST /ticket · POST /process/{id} · review · logs"]
@@ -161,7 +163,8 @@ flowchart TD
     HUMAN -. "review endpoint" .-> REVIEW
     INDEX -. "updates" .-> KB
 ```
-
+   </details>
+   
 ## What the online pipeline actually does
 
 ### Intake
